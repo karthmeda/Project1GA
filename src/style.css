@@ -1,0 +1,110 @@
+body {
+  background-color: #4183D7;
+  margin:0;
+  padding:0;
+}
+
+.wordgame{
+margin:auto;
+ width:800px;
+ height:400px;
+ position:relative;
+ overflow:hidden;
+ background-color:green;
+ text-align:center
+}
+
+
+
+.worddiv{
+   margin-top:50px;
+   margin-left:100px;
+
+}
+
+.score{
+  position:absolute;
+  top:0;
+right:0;
+  font-size:20px;
+  border: 1px solid black;
+  font-family: 'Nunito Sans', sans-serif;
+
+
+
+}
+h1{
+  font-family: 'Buda', cursive;
+}
+
+h2{
+  font-family: 'Cormorant Garamond', serif;
+
+}
+
+.lettersGuessed{
+  position:absolute;
+  bottom:0
+  right:0;
+  font-size:20px;
+font-family: 'Nunito Sans', sans-serif;
+border: 1px solid black;
+
+}
+
+.square{
+height:40px;
+width:40px;
+float:left;
+ margin-right:10px;
+ background-color:white;
+ text-align:center;
+ font-size:25px;
+ font-family: 'Signika', sans-serif;
+ color:#333;
+ padding-top:3px;
+ border: 2px solid yellow;
+ border-radius:10px;
+}
+
+.start{
+  width:120px;
+  height:40px;
+  margin-top: 20px;
+  background-color: indianred;
+  border-radius:20px;
+}
+
+footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+   line-height: 2;
+   text-align: center;
+   font-family: 'Nunito Sans', sans-serif;
+}
+
+@media screen and (max-width:800px) {
+
+ .wordgame{
+	 margin:1%;
+	 width:98%;
+ }
+ .square{
+	 height:20px;
+	 width:20px;
+	 font-size:14px;
+ }
+}
+
+@media screen and (max-width:560px) {
+ .worddiv{
+	 margin-top:10px;
+	 margin-left:10px;
+ }
+
+
+ }

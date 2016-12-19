@@ -1,31 +1,3 @@
-# <center> WORD GUESS GAME </center>
-<br>
-
-![Screen Shot of the game](src/wordguess.png)
-
-
-
-## RULES OF THE GAME
-In Word Guess the player is given a random word puzzle to solve, and is awarded 50 points on each correct letter, 5 points deducted if a letter guessed incorrectly, and 100 points if word is guessed. The player has 7 tries for words of 16 characters or less, and the guesses are half of the words length, for words with greater than 18 characters. (i.e if a word is 18 letters long, you get 9 chances, and so forth)
-
-
-## IMPLEMENTATION
-As stated in project requirements for classes to be used, I utilized classes for the outcomes of letter, word and game respectively, eventually creating an app.js file where I use DOM manipulation through jquery (as well as in the game.js file) to start a Word guess game using the logic from the aforementioned classes
-
-
-## TECHNOLOGIES USED
-
-For this project I used :
-- Javascript
-- HTML
-- CSS
-- Jquery
-
-
-
-## CODE EXAMPLE
-
-```javascript
 console.log('game.js is connected');
 
 
@@ -105,31 +77,39 @@ class Game {
 
  }
 
-```
+//Checks if game is finished
+  isFinished () {
+    if(this.guesses===0||this.currentWord.isGuessed()===true){
+      return true;
 
-## Build Strategy
+    }
 
-My strategy was to build this game similar to wheel of fortune look and feel wise, and to build upon this game in the future. Some of the build strategy for this game by classes, came through the hangman jasmine homework, which I thank GA for.
+    else {
+      return false;
+    }
+
+  }
+
+//this method returns a message in the status h2 tag under the game title, displaying the user their score total
+//and whether the user solved the puzzle in the given amount of tries
+  endGameMsg() {
+     if(this.guesses===0){
+      $('.status').html(`Sorry you lost, your score this game was ${this.score}.. start a new game!`);
+      $('.worddiv').remove();
+
+    }
+
+    else if (this.currentWord.isGuessed()){
+      this.score+=100;
+      $(".status").css("font-family", "Arvo, serif");
+      $('.status').html(`Victory is Yours! The word was ${this.currentWord.create()} your score this round was ${this.score}!`);
+      $('.worddiv').remove();
+    }
+    else{
+      return undefined;
+    }
+
+  }
 
 
-
-## Contributors
-The main contributor is GA and Hakuna Matata, who helped me come up with the logic of a word game, through class work and the hangman exercise. Joe Keohan through whiteboarding exercises helped me stay focused on deliverables for this project, and what to focus on.  I also took asked for help from Tenzin Chosphel for Event Listeners, and inheritance from classes as well as looking up JQuery documentation for  DOM manipulation
-
-## Complications/Future Improvements
-
-- I wanted to build this game as a starting block for a full fledged Wheel of Fortune browser game, an ode to my childhood and the fun times guessing word puzzles with family. I
-set out to mimic the look and feel of the game, at least without the wheel. But I hit a roadblock when converting this game logic to classes from functions, due to inheritance, and some limitations on using attributes from one or more classes.
-
-- I could not figure out how to remove child elements say 4 seconds, after the end of the game, (in this case the letter squares from the green letter or word board), without it happening repetitively, through setInterval.
-
-- I also wanted to be be able to flip letters
-on a guess, just as Vanna White would turn a letter tile.
-
-- I will look to expand this game to sentences and phrases, but could not properly account for special characters like ?''& etc, as well as ensuring the letter squares/tiles are centered and properly displayed..  I'm not far off though.
-
-## Authors
-
-- Karthik Meda
-- General Assembly
-- Joe Keohan
+}
